@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Case 21</title>
+				<link rel="stylesheet" href="style.css">
+</head>
+
+	<body>
+
+		<!-- PASSWORD SCREEN -->
+		<div id="passwordScreen">
+			<div class="password-card">
+
+				<img src="./mickey.jpg" alt="Dr. Mickey" class="profile-photo">
+
+					<h1>Dr. Mickey</h1>
+
+					<p class="password-subtitle">
+						This little surprise is just for you
+					</p>
+
+					<label for="birthdayPassword">Enter the password</label>
+
+					<input
+						type="password"
+						id="birthdayPassword"
+						placeholder="Your secret password"
+            >
+
+						<button id="unlockButton" onclick="unlockBirthday()">
+							Unlock
+						</button>
+
+						<p id="passwordError"></p>
+
+					</div>
+		</div>
+
+
+		<!-- MAIN CONTENT -->
+		<div class="container" id="mainContent" style="display: none;">
+
+			<!-- WELCOME SCREEN -->
+			<div id="welcomeScreen">
+
+				<h1>Hello</h1>
+				<h2>SYSTEM DIAGNOSTICS</h2>
+
+				<p>Welcome, DR. Mickey</p>
+				<p>We need to perform a quick personality scan.</p>
+				<p>Please answer honestly.</p>
+
+				<button id="startButton">START SCAN</button>
+
+			</div>
+
+
+			<!-- QUESTIONS -->
+			<div id="questionScreen" style="display: none;">
+
+				<!-- QUESTION 01 -->
+				<div id="question1">
+
+					<h2>QUESTION 01</h2>
+					<p>What is your favorite thing to do?</p>
+
+					<button onclick="goToQuestion(1, 2)">Sleep</button>
+					<button onclick="goToQuestion(1, 2)">Eat</button>
+					<button onclick="goToQuestion(1, 2)">Go out</button>
+					<button onclick="goToQuestion(1, 2)">Annoy people</button>
+
+				</div>
+
+
+				<!-- QUESTION 02 -->
+				<div id="question2" style="display: none;">
+
+					<h2>QUESTION 02</h2>
+					<p>If your life had a warning label, what would it say?</p>
+
+					<button onclick="goToQuestion(2, 3)">Handle with care</button>
+					<button onclick="goToQuestion(2, 3)">DON'T disturb</button>
+					<button onclick="goToQuestion(2, 3)">GOOD luck</button>
+					<button onclick="goToQuestion(2, 3)">Anything else</button>
+
+				</div>
+
+
+				<!-- QUESTION 03 -->
+				<div id="question3" style="display: none;">
+
+					<h2>QUESTION 03</h2>
+					<p>Which blood cells help fight infections?</p>
+
+					<button onclick="checkAnswer(false, 3)">Red blood cells</button>
+					<button onclick="checkAnswer(false, 3)">Platelets</button>
+					<button onclick="checkAnswer(true, 3)">White blood cells</button>
+					<button onclick="checkAnswer(false, 3)">Plasma</button>
+
+					<p id="answerFeedback"></p>
+
+					<button id="nextButton" style="display: none;"
+						onclick="goToQuestion(3, 4)">
+						Continue
+					</button>
+
+				</div>
+
+
+				<!-- QUESTION 04 -->
+				<div id="question4" style="display: none;">
+
+					<h2>elrabe3 ya 3sl</h2>
+
+					<p>faker awl mara 5ragna b3d ma etsa7bna kant feen?</p>
+
+					<button onclick="checkAnswer(false, 4)">Mac</button>
+					<button onclick="checkAnswer(true, 4)">Dunkin</button>
+					<button onclick="checkAnswer(false, 4)">kan baba 3amel 3malya</button>
+					<button onclick="checkAnswer(false, 4)">else</button>
+
+					<p id="answerFeedback4"></p>
+
+					<button id="nextButton4" style="display: none;" onclick="goToQuestion(4, 5)">
+						Continue
+					</button>
+					
+				</div>
+               
+				<!-- QUESTION 05 -->
+				<div id="question5" style="display: none;">
+					<h2>QUESTION 05</h2>
+					<p>what does edema mean?</p>
+					<button onclick="checkAnswer(false, 5)">Loss of blood</button>
+					<button onclick="checkAnswer(true, 5)">Accumulation of fluid in tissues </button>
+					<button onclick="checkAnswer(false, 5)">High blood suger</button>
+					<button onclick="checkAnswer(false, 5)">Low oxygen</button>
+					<p id="answerFeedback5"></p>
+					<button id="nextButton5" style="display: none;" onclick="goToQuestion(5, 6)">
+						Continue
+					</button>
+				</div>
+
+				<!-- QUESTION 06 -->
+				<div id="question6" style="display: none;">
+					<h2>QUESTION 06</h2>
+					<p>Emta awel mara ro7na shrebna hot chocolate sawa</p>
+					<button onclick="checkAnswer(false, 6)">7/1</button>
+					<button onclick="checkAnswer(false, 6)">5/3</button>
+					<button onclick="checkAnswer(true, 6)">26/1</button>
+					<button onclick="checkAnswer(false, 6)">2/1</button>
+					<p id="answerFeedback6"></p>
+					<button id="nextButton6" style="display: none;" onclick="goToQuestion(6, 7)">
+						Continue
+					</button>
+				</div>
+				<!-- QUESTION 07 -->
+				<div id="question7" style="display: none;">
+					<h2>QUESTION 07</h2>
+					<p>eh el7aga elli nfsk feha dlw2ty ya 7abibyy</p>
+					
+					<button id="nextButton7" onclick="goToReport()">
+						Continue
+					</button>
+				</div>
+			</div>
+
+
+			<!-- FINAL REPORT -->
+			<div id="reportScreen" style="display: none;">
+
+				<div class="report-header">
+
+					<p class="report-label">FINAL DIAGNOSIS</p>
+					<h1>Case.21</h1>
+
+					<hr>
+
+						<h2>FINAL SYSTEM REPORT</h2>
+						<p>Patient: Mickey</p>
+
+					</div>
+
+
+
+				<!-- كارت نسبة النضج -->
+				<div class="report-card">
+					<p class="card-label">TEST RESULT 01</p>
+					<div class="result-heading">
+						<h3>Maturity Level</h3>
+						<span class="result-score">20%</span>
+					</div>
+					<p class="result-description">
+						Adulting software failed to load. The patient still requires adult supervision at all times.
+					</p>
+				</div>
+
+				<!-- كارت مستوى الدكترة -->
+				<div class="report-card">
+					<p class="card-label">TEST RESULT 02</p>
+					<div class="result-heading">
+						<h3>Medical Expertise</h3>
+						<span class="result-score">90%</span>
+					</div>
+					<p class="result-description">
+						 good doctor. Not bad at all, though we still pray for the patients.
+					</p>
+				</div>
+
+				<!-- كارت التفكير الزايد (Overthinking) -->
+				<div class="report-card">
+					<p class="card-label">TEST RESULT 03</p>
+					<div class="result-heading">
+						<h3>Overthinking Processor</h3>
+						<span class="result-score">99.9%</span>
+					</div>
+					<p class="result-description">
+						CPU is running at maximum capacity analyzing imaginary scenarios at 3 AM. Needs a forced restart.
+					</p>
+				</div>
+
+				<!-- كارت إضافي رابع للهزار (مستوى الدلع أو الإدمان) -->
+				<div class="report-card">
+					<p class="card-label">TEST RESULT 04</p>
+					<div class="result-heading">
+						<h3>A7la 7aga fe eldenia !!</h3>
+						<span class="result-score">10000000%</span>
+					</div>
+					<p class="result-description">
+						 requires constant attention, hugs, and treats to function normally.Atyb w a7la 7aga ya mickey fl3an ana bmoot fek
+					</p>
+				</div>
+				
+
+
+				<div class="birthday-message">
+
+					<p class="report-label">A FEW WORDS CAN'T DESCRIBE EVERYTHING</p>
+
+					<h2>HAPPY BIRTHDAY, MOCKIEE</h2>
+
+					<p>21 years completed.</p>
+
+					<p>
+						Happy birthday to the most important and kindest person ever.
+						I hope you always stay as wonderful as you are, with all the
+						beautiful things that make you who you are.
+					</p>
+
+					<p>
+						I honestly don't even know what to say, but you've truly
+						changed so many things in me for the better, and I'm so
+						grateful for that.
+					</p>
+
+					<p>
+						I hope you achieve everything you've ever wished for,
+						and that you never lose any of the beautiful things
+						that make you YOU.
+					</p>
+
+					<p>
+						May God always keep you in my life, habiby.
+						Here's to many more years together, making memories,
+						doing everything, and experiencing so much more side by side.
+					</p>
+
+					<p class="closing-line">
+						Keep being the person who makes life better
+						just by being in it.
+					</p>
+
+
+					<!-- FINISH BUTTON -->
+					<button class="finish-button" onclick="showLastSurprise()">
+						Finish
+					</button>
+
+
+					<!-- LAST SURPRISE -->
+					<div id="lastSurprise" class="last-surprise" style="display: none;">
+
+						<p class="surprise-label">ONE LAST SURPRISE</p>
+
+						<h2>WAIT... THERE'S MORE!</h2>
+
+						<p class="surprise-description">
+							Because some moments deserve more than just words.
+							Here's something for you.
+						</p>
+
+						<div class="video-container">
+
+							<video id="birthdayVideo" controls="" playsinline="">
+								<source src="mockie.mp4" type="video/mp4">
+                            Your browser does not support this video.
+                        </video>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<script src="./script.js"></script>
+
+	</body>
+</html>
+
+
